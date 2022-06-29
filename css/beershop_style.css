@@ -1,0 +1,79 @@
+header {
+  grid-area: header;
+}
+
+footer {
+  grid-area: footer;
+}
+
+#principal_beershop {
+  grid-area: principal_beershop;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+#grilla {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "header header" "principal_beershop principal_beershop" "footer footer";
+}
+
+/* MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE */
+
+@media screen and (max-width: 599px) {
+  #principal_beershop {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "principal_beershop";
+    font-size: 150%;
+    background-color: rgb(163, 164, 157);
+  }
+  .whatsappSticky {
+    display: none;
+  }
+}
+
+/*DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP */
+
+@media screen and (min-width: 600px) {
+  #principal_beershop {
+    font-size: 150%;
+    background-image: url("../images/index/fondobeershop.jpg");
+    background-size: cover;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .whatsappSticky{
+    position: fixed;
+    bottom: 500px; left: 1350px;
+    mix-blend-mode:color-burn;
+    width: 55px;
+    height: 55px;
+}
+
+.whatsappSticky:hover img{
+    transform:scale(1.5) rotate(25deg); 
+    transition: .5s ease-in-out;
+}
+
+.shake {
+  animation: temblor-animation 1.5s ease infinite;
+  transform-origin: 70% 70%;
+}
+@keyframes temblor-animation {
+  0% { transform:translate(0,0) }
+ 1.78571% { transform:translate(15px,0) }
+ 3.57143% { transform:translate(0,0) }
+ 5.35714% { transform:translate(15px,0) }
+ 7.14286% { transform:translate(0,0) }
+ 8.92857% { transform:translate(15px,0) }
+ 10.71429% { transform:translate(0,0) }
+ 100% { transform:translate(0,0) }
+}
+
+
+}

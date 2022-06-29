@@ -1,0 +1,50 @@
+
+header {
+  grid-area: header;
+}
+
+footer {
+  grid-area: footer;
+}
+
+#quienessomos {
+  grid-area: quienessomos;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+
+}
+
+#grilla {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: " header " " quienessomos" "footer ";
+}
+
+/* MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE */
+
+@media screen and (max-width: 599px) {
+  #quienessomos {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "quienessomos";
+    font-size: 150%;
+    background-color: rgb(163, 164, 157);
+  }
+}
+
+/*DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP */
+
+@media screen and (min-width: 600px) {
+  #quienessomos {
+    font-size: 300%;
+    background-image: linear-gradient( 129.1deg,  rgba(243,199,83,1) 26.8%, rgba(18,235,207,1) 114.1% );
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+
+}
