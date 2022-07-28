@@ -1,0 +1,94 @@
+/* GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES */ /* HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER */
+nav {
+  background-color: rgb(127, 190, 238);
+}
+nav .h1, nav ul {
+  font-size: x-large;
+}
+nav ul li {
+  background-color: rgba(151, 102, 201, 0.958);
+}
+
+/* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
+footer {
+  width: 100%;
+  text-align: center;
+  background-color: rgba(151, 102, 201, 0.958);
+}
+footer ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+footer ul img {
+  width: 45px;
+  height: 45px;
+  mix-blend-mode: darken;
+}
+
+a.link {
+  text-decoration: none;
+}
+
+a.visited {
+  text-decoration: none;
+}
+
+a.active {
+  text-decoration: underline;
+}
+
+html {
+  padding: 0px;
+  margin: 0px;
+}
+html ul {
+  padding-bottom: 15px;
+}
+
+/* LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE  */
+a:hover {
+  box-shadow: inset 290px 0 0 0 rgba(84, 179, 214, 0.7);
+  transition: 0.5s ease-out;
+}
+
+/* ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER */
+.lineUp {
+  -webkit-animation: 2s anim-lineUp ease-out infinite;
+          animation: 2s anim-lineUp ease-out infinite;
+}
+
+@-webkit-keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
