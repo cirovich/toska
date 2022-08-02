@@ -23,71 +23,24 @@ a.active {
   }
   #principal_beershop {
     font-size: 150%;
-    background-color: rgb(163, 164, 157);
-  }
-  table, thead, tbody, th, td, tr {
-    display: block;
-  }
-  table tr, thead tr, tbody tr, th tr, td tr, tr tr {
-    border: 1px solid rgb(0, 0, 0);
-  }
-  table td, thead td, tbody td, th td, td td, tr td {
-    border-bottom: 1px solid #eee;
-    position: relative;
-    padding-left: 50%;
-  }
-  thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-  /* ------------------------------------- ANIDAR ---------------------------------*/
-  td:before {
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
-  }
-  td:nth-of-type(1):before {
-    content: " ";
-  }
-  td:nth-of-type(2):before {
-    content: "IPA";
-  }
-  td:nth-of-type(3):before {
-    content: "APA";
-  }
-  td:nth-of-type(4):before {
-    content: "STOUT";
-  }
-  td:nth-of-type(5):before {
-    content: "BOCK";
-  }
-  td:nth-of-type(6):before {
-    content: "ROJA";
-  }
-  td:nth-of-type(7):before {
-    content: "EPA";
+    background-color: radial-gradient(circle 976px at 51.2% 51%, rgb(11, 27, 103) 0%, rgb(16, 66, 157) 0%, rgb(11, 27, 103) 17.3%, rgb(11, 27, 103) 58.8%, rgb(11, 27, 103) 71.4%, rgb(16, 66, 157) 100.2%, rgb(187, 187, 187) 100.2%);
   }
 }
 /*DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP */
 @media screen and (min-width: 600px) {
   #principal_beershop {
     font-size: 150%;
-    background-image: url("../images/index/fondobeershop.jpg");
+    background: radial-gradient(circle at 100%, #333, #333 50%, #eee 75%, #333 75%);
     background-size: cover;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding: 1rem 1rem 1rem 1rem;
   }
   .whatsappSticky {
     position: fixed;
     bottom: 560px;
     left: 1350px;
-    mix-blend-mode: color-burn;
     width: 45px;
     height: 45px;
+    z-index: 1;
   }
   .whatsappSticky:hover img {
     transform: scale(1.5) rotate(25deg);
@@ -98,56 +51,60 @@ a.active {
     animation: temblor-animation 1.5s ease infinite;
     transform-origin: 70% 70%;
   }
-  @-webkit-keyframes temblor-animation {
-    0% {
-      transform: translate(0, 0);
-    }
-    1.78571% {
-      transform: translate(15px, 0);
-    }
-    3.57143% {
-      transform: translate(0, 0);
-    }
-    5.35714% {
-      transform: translate(15px, 0);
-    }
-    7.14286% {
-      transform: translate(0, 0);
-    }
-    8.92857% {
-      transform: translate(15px, 0);
-    }
-    10.71429% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
+}
+@-webkit-keyframes temblor-animation {
+  0% {
+    transform: translate(0, 0);
   }
-  @keyframes temblor-animation {
-    0% {
-      transform: translate(0, 0);
-    }
-    1.78571% {
-      transform: translate(15px, 0);
-    }
-    3.57143% {
-      transform: translate(0, 0);
-    }
-    5.35714% {
-      transform: translate(15px, 0);
-    }
-    7.14286% {
-      transform: translate(0, 0);
-    }
-    8.92857% {
-      transform: translate(15px, 0);
-    }
-    10.71429% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
+  1.78571% {
+    transform: translate(15px, 0);
   }
+  3.57143% {
+    transform: translate(0, 0);
+  }
+  5.35714% {
+    transform: translate(15px, 0);
+  }
+  7.14286% {
+    transform: translate(0, 0);
+  }
+  8.92857% {
+    transform: translate(15px, 0);
+  }
+  10.71429% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes temblor-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  1.78571% {
+    transform: translate(15px, 0);
+  }
+  3.57143% {
+    transform: translate(0, 0);
+  }
+  5.35714% {
+    transform: translate(15px, 0);
+  }
+  7.14286% {
+    transform: translate(0, 0);
+  }
+  8.92857% {
+    transform: translate(15px, 0);
+  }
+  10.71429% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.card img:hover {
+  transform: scale(0.95);
+  transition: 0.2s ease-in-out;
 }

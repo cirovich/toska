@@ -11,9 +11,6 @@
 .navbar-expand-lg {
   background-color: rgba(0, 0, 0, 0) !important;
 }
-.navbar-expand-lg .margen_negativo {
-  margin-right: -98%;
-}
 
 #principal div {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -36,6 +33,7 @@
   font-size: x-large;
   margin: 2rem 2rem 2rem 2rem;
 }
+
 #historia2 .responsive {
   display: block;
   max-width: 90%;
@@ -57,4 +55,11 @@
 p, h1 {
   padding: 1rem 1rem 2rem 0rem;
   text-align: center;
+}
+
+/* MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE */
+@media screen and (max-width: 599px) {
+  .derecha {
+    display: none;
+  }
 }

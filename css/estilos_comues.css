@@ -46,9 +46,14 @@ html ul {
 }
 
 /* LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE  */
-a:hover {
+.navbar a:hover {
   box-shadow: inset 290px 0 0 0 rgba(84, 179, 214, 0.7);
   transition: 0.5s ease-out;
+}
+
+footer a:hover img {
+  transform: scale(0.7);
+  transition: 0.2s ease-in-out;
 }
 
 /* ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER */
