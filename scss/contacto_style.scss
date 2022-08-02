@@ -1,0 +1,46 @@
+@import "variables";
+#contacto {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+/* BOTON BOTON BOTON BOTON BOTON BOTON BOTON BOTON BOTON BOTON BOTON BOTON BOTON BOTON BOTON BOTON BOTON BOTON */
+
+/*----------------ANIDAR--------------------*/
+.btn-primary {
+  background-color: $coloracentos;
+  height: 3rem;
+  width: 5rem;
+   &:hover {
+   background-color: rgb(197, 209, 22);
+}
+}
+
+/*MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE */
+
+@media screen and (max-width: 599px) {
+  #contacto {
+    background-color: rgb(163, 164, 157);
+    text-align: center;
+    margin-bottom: 0px;
+     textarea:focus {
+     height: 200px;
+     transition: 1s;
+   }
+ }
+}
+
+/*DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP */
+
+@media screen and (min-width: 600px) {
+  #contacto {
+    display: grid;
+    background-image: url("../images/index/contactofondo.jpg");
+    background-size: cover;
+    justify-content: left;
+    padding-left: 30px;
+    form {
+     color: rgb(171, 181, 113);
+     font-size: 26px;
+  }
+} 
+}
