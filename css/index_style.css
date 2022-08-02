@@ -1,59 +1,60 @@
-/*EXPERIMENTO GRIDS EXPERIMENTO GRIDS EXPERIMENTO GRIDS EXPERIMENTO GRIDS EXPERIMENTO  GRIDS EXPERIMENTO GRIDS*/
-
-header {
-  grid-area: header;
+.navbar {
+  z-index: 2;
+  position: absolute;
 }
 
-footer {
-  grid-area: footer;
+#principal {
+  z-index: 1;
+  position: relative;
 }
 
-section #principal {
-  grid-area: principal;
+.navbar-expand-lg {
+  background-color: rgba(0, 0, 0, 0) !important;
 }
-
-#grilla {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto auto;
-  grid-template-areas: " header header" "principal principal" "footer footer";
-}
-
-#principal img {
-  object-fit: fill;
-  max-width: 100%;
-  max-height: 100%;
+.navbar-expand-lg .margen_negativo {
+  margin-right: -98%;
 }
 
 #principal div {
-  border: solid 1px;
-  padding: 5px;
-  text-align: center;
-  justify-content: center;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  background-color: rgb(163, 164, 157);
-  font-size: 300%;
+  font-size: larger;
+  color: rgb(0, 0, 0);
+  background-color: rgba(93, 155, 162, 0.7);
+  max-height: 750px;
 }
 
-/* MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE */
-
-@media screen and (max-width: 599px) {
-  #principal {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto auto ;
-    grid-template-areas: "principal " "principal " "principal ";
-  }
+#historia {
+  background-color: rgba(141, 192, 198, 0.5);
+  font-size: larger;
+  text-align: center;
+}
+#historia .card {
+  background-color: rgba(141, 192, 198, 0.5);
 }
 
-/*DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP */
-
-@media screen and (min-width: 600px) {
-  #principal {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "principal principal" "principal principal" "principal principal";
-  }
+#historia2 {
+  font-size: x-large;
+  margin: 2rem 2rem 2rem 2rem;
+}
+#historia2 .responsive {
+  display: block;
+  max-width: 90%;
+  margin: 1rem auto 1rem auto;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 25px;
+}
+#historia2 .imagenesLaterales {
+  position: absolute;
+  z-index: -1;
+  max-width: 15%;
+  margin: -2rem;
+}
+#historia2 .derecha {
+  margin-left: 75%;
 }
 
+p, h1 {
+  padding: 1rem 1rem 2rem 0rem;
+  text-align: center;
+}

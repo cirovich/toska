@@ -1,0 +1,7 @@
+$mapEstiloLinks: (link:none, visited:none, active:underline);
+
+@each $links, $estilo in $mapEstiloLinks {
+    a.#{$links} {
+        text-decoration:$estilo
+    }
+}

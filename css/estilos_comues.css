@@ -1,134 +1,94 @@
-/* GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES */
-
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,400;0,800;1,200&family=Outfit:wght@300&display=swap");
-body {
-  padding: 0px;
-  margin: 0px;
+/* GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES GENERALIDADES */ /* HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER HEADER */
+nav {
+  background-color: rgb(127, 190, 238);
+}
+nav .h1, nav ul {
+  font-size: x-large;
+}
+nav ul li {
+  background-color: rgba(151, 102, 201, 0.958);
 }
 
-a:link {
-  text-decoration: none;
-}
-a:visited {
-  text-decoration: none;
-}
-
-body{
-  margin: 0px;
-  padding: 0px;;
-}
-
-/* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
-
+/* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
 footer {
   width: 100%;
   text-align: center;
-  background-color: rgb(157, 162, 93);
+  background-color: rgba(151, 102, 201, 0.958);
 }
-
 footer ul {
   display: flex;
   justify-content: space-evenly;
 }
-
 footer ul img {
-  width: 55px;
-  height: 55px;
+  width: 45px;
+  height: 45px;
   mix-blend-mode: darken;
 }
 
-/* MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE */
+a.link {
+  text-decoration: none;
+}
 
-@media screen and (max-width: 599px) {
-  header {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #000000;
-    padding: 2.3em 0;
-    background-image: url("../images/index/fondo.jpg");
-    background-size: cover;
-  }
+a.visited {
+  text-decoration: none;
+}
 
-  .logo {
-    margin-left: 5%;
+a.active {
+  text-decoration: underline;
+}
+
+html {
+  padding: 0px;
+  margin: 0px;
+}
+html ul {
+  padding-bottom: 15px;
+}
+
+/* LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE LINK STYLE  */
+a:hover {
+  box-shadow: inset 290px 0 0 0 rgba(84, 179, 214, 0.7);
+  transition: 0.5s ease-out;
+}
+
+/* ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER */
+.lineUp {
+  -webkit-animation: 2s anim-lineUp ease-out infinite;
+          animation: 2s anim-lineUp ease-out infinite;
+}
+
+@-webkit-keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
   }
-  .nav {
-    margin: 1.5em 0 0 5%;
+  20% {
+    opacity: 0;
   }
-  header ul li {
-    display: inline-block;
-    padding: 0 1.4em 0 0;
-    font-size: 1.1em;
-    font-weight: bolder;
-   
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
   }
-  header ul li a {
-    color: #7d7c7d;
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
   }
 }
 
-/*DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP */
-
-@media screen and (min-width: 600px) {
-  .header {
-    display: flex;
-    flex-flow: row wrap;
-    list-style-type: none;
-    justify-content: space-between;
-    border-bottom: 1px solid #000000;
-    padding: 2.3rem;
-    background-image: url("../images/index/fondo.jpg");
-    background-size: cover;
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
   }
-  .logo {
-    margin-left: 5%;
+  20% {
+    opacity: 0;
   }
-
-  nav {
-    margin: 1.5em 0 0 5%;
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
   }
-  header ul li {
-    display: inline-block;
-    padding: 0 1.4em 0 0;
-    font-size: 0.9em;
-  }
-  header ul li a {
-    font-size: xx-large;
-    font-weight: 900;
-    color: #7d7c7d;
-  }
-  header a {
-    font-size: 3rem;
-    color: #5c5d33;
-    font-weight: bold;
-  }
- 
-  a:hover {
-    box-shadow: inset 290px 0 0 0 rgba(84,179,214,0.7);
-    transition: 0.5s ease-out;
-  }
-  a:active {
-    text-decoration: underline;
-  }
-  /* ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER ANIMACION FOOTER */
-  .lineUp {
-    animation: 2s anim-lineUp ease-out infinite;
-  }
-  @keyframes anim-lineUp {
-    0% {
-      opacity: 0;
-      transform: translateY(80%);
-    }
-    20% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0%);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
   }
 }
