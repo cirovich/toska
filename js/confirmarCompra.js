@@ -19,13 +19,17 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
     const recetaDiaria = document.getElementById("recetaDiaria");
     recetaDiaria.innerHTML = `¿ No aguantas a que llegue el delivery? Traigan puertas que manijas sobran! Podes esquivar la realidad con un riquisimo ${receta.drinks[0].strDrink}. Nada mas necesitas ${receta.drinks[0].strIngredient1} y ${receta.drinks[0].strIngredient2}`
     const div   = document.createElement("div");
-    div.innerHTML = `<img src=${receta.drinks[0].strDrinkThumb}>`;
+    div.innerHTML = `
+    <img src=${receta.drinks[0].strDrinkThumb}> 
+    <br>
+    ${receta.drinks[0].strInstructions}
+    
+    `;
     recetaDiaria.appendChild(div)
-
   });
 
 
-// Calcula  el precio subtotal y modifica el HTML "total"
+// Calcula  el precio subtotal y modifica el HTML total"
 const mostrarDetalleCompra = document.getElementById("total");
 mostrarDetalleCompra.innerHTML = " ";
 mostrarDetalleCompra.innerHTML = `Sutotal : $${(subtotal =
