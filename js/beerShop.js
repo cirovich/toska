@@ -3,38 +3,51 @@ let EPA = localStorage.getItem('EPA') || 0;
 let Negra = localStorage.getItem('Negra') || 0;
 let IPA = localStorage.getItem('IPA') || 0;
 
-const result = LoadJson () 
-console.log (result)
+// const result = LoadJson()
+// console.log(result)
+
+// Llamar a la funcion
 birraDiVContainer()
 
 //BUENO, ACA LA PAPA ES FETCHEAR EL JSON y HACERLO DE ALCANCE GLOBAL PARA PODER USAR SUS VALUES EN function birraDiVContainer()
-async function LoadJson () {
-  const response = await fetch ('../JSON/toska_json.json')
+
+// La funcion retorna el valor asyncronicamente. Ver la llamada mas abajo
+// Las funciones como convencion se escriben en camelCase;
+async function loadJson () {
+  const response = await fetch('../JSON/toska_json.json')
   const data = await response.json()
   return data
-  }
-  
+}
+
 //encuentra en punto de insercion en el html, e inyecta el html tras haber iterado el objeto del json. creo que llevaria un for of, pero como no anda
-//no lo impremente. 
+//no lo impremente.
 
 //las variables estan puestas a modo explicativo, ya que como no las puedo leer no puedo estimar su estructura. Pero por ahi debe andar, salvo que tenga un
 //sub indice [x] para especificar que posicion del array lee
 //es bootstrap 5
 
-function birraDiVContainer() {
+// Convertir a la funcion en async para que pueda awaitear el llamado de la otra funcion LoadJson
+async function birraDiVContainer () {
+  // Llamar a la funcion que consigue los datos y esperar que se carguen antes de continuar.
+  const data = await loadJson()
+  // contenedor en el dom
   const DiVContainer = document.getElementById("principal_beershop");
-  DiVContainer.innerHTML = ` `;
-    let col = document.createElement("col")
-    col.innerHTML = `
-      <div class="card">
-        <img src="${data.cervezas.img}" class="card-img-top" alt="${data.cervezas.nombre}">
-        <div class="card-body">
-          <h5 class="card-title"> ${data.cervezas.nombre}</h5>
-          <p class="card-text">${data.cervezas.descripcion}</p>
-          <button ID=${data.cervezas.buttonRestar} class="btn btn-outline-dark" type="number">  QUITAR </button> 
-          <button ID=${data.cervezas.buttonCant} class="btn btn-outline-dark" type="button"> CANTIDAD PEDIDA : 0 </button>
-          <button ID=${data.cervezas.buttonSumar} class="btn btn-outline-dark" type="button" max="5"> AGREGAR </button>
-        </div>
+
+  // Para cada cerveza del array:
+  data.cervezas
+    .forEach(cerveza => {
+      // El string formateado para cada cerveza (tambien arregle el tag id que le faltaban comillas)
+      const cardString = `
+      <div class="col">
+    <div class="card">
+    <img src="${cerveza.img}" class="card-img-top" alt="${cerveza.nombre}">
+    <div class="card-body">
+          <h5 class="card-title">${cerveza.nombre}</h5>
+          <p class="card-text">${cerveza.descripcion}</p>
+          <button id="${cerveza.buttonRestar}" class="btn btn-outline-dark" type="number"> QUITAR </button>
+          <button id="${cerveza.buttonCant}" class="btn btn-outline-dark" type="button"> CANTIDAD PEDIDA : 0 </button>
+          <button id="${cerveza.buttonSumar}" class="btn btn-outline-dark" type="button" max="5"> AGREGAR </button>
+          </div>
         <div class="accordion accordion-flush" id="accordionFlushExample">
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingOne">
@@ -44,17 +57,23 @@ function birraDiVContainer() {
               </button>
             </h2>
             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-              data-bs-parent="#accordionFlushExample">
-              <div class="accordion-body"> ${data.cervezas.detalles} </div>
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body"> ${cerveza.detalles} </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-     `
-     DiVContainer.appendChild(DiVContainer)  // redundante 
-  
-  }
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            `
+      // Transformar el string que devuelve de mas arriba en un elemento del DOM (esto nunca lo habia hecho lo saque de google)
+      const parser = new DOMParser()
+      const card = parser.parseFromString(cardString, 'text/html').body
+      // append la card al contenedor del dom
+      DiVContainer.append(card)
+    })
+
+}
 
 
 
@@ -88,7 +107,7 @@ var btnrestarUnaNegra = document.getElementById(restarUnaNegra)
 restarUnaNegra.addEventListener("click", () => ((Negra = Negra <= 0 || --Negra), Number(localStorage.setItem("Negra", Negra)), mostrarBirras(Negra, "cantidadNegra")))
 
 
-// la funcion que actualiza el numero de birras pedidas en el display de su sabor correspondiente 
+// la funcion que actualiza el numero de birras pedidas en el display de su sabor correspondiente
 function mostrarBirras(EPA, cantidadEpa) {
 
   if (EPA <= 0) {EPA = 0 }
@@ -108,7 +127,7 @@ btnConfirmar.addEventListener("click", () => guardarCompraEnStorage(IPA, APA, EP
 
 //confirma la compra. Si las birras son igual a 0 no deja pasar
 function guardarCompraEnStorage(IPA, APA, EPA, Negra) {
-  //comprueba que birraPedida !=0 
+  //comprueba que birraPedida !=0
   setTimeout(botonConfirmarCompraRefresh, 2000);
   birraPedida = (IPA + APA + EPA + Negra)
   if (birraPedida === 0) {
@@ -117,7 +136,7 @@ function guardarCompraEnStorage(IPA, APA, EPA, Negra) {
     noAvanzar.addEventListener("click", () => { guardarCompraEnStorage })
     document.getElementById("confirmarPedido").prepend(noAvanzar);
   } else {
-    // si compro birras, guardas las variables en localstorage y deja pasar al siguiente html 
+    // si compro birras, guardas las variables en localstorage y deja pasar al siguiente html
     localStorage.setItem("IPA", IPA);
     localStorage.setItem("APA", APA);
     localStorage.setItem("EPA", EPA);
@@ -133,10 +152,10 @@ function botonConfirmarCompraRefresh() {
   document.getElementById("confirmarPedido").prepend(noAvanzar);
 }
 
-CODIGO VIEJO DE REFERENCIA 
-CODIGO VIEJO DE REFERENCIA 
-CODIGO VIEJO DE REFERENCIA 
-CODIGO VIEJO DE REFERENCIA 
+CODIGO VIEJO DE REFERENCIA
+CODIGO VIEJO DE REFERENCIA
+CODIGO VIEJO DE REFERENCIA
+CODIGO VIEJO DE REFERENCIA
 CODIGO VIEJO DE REFERENCIA :::::::
 
 let x = 0
