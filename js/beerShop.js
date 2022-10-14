@@ -3,6 +3,65 @@ let EPA = localStorage.getItem('EPA') || 0;
 let Negra = localStorage.getItem('Negra') || 0;
 let IPA = localStorage.getItem('IPA') || 0;
 
+const result = LoadJson () 
+console.log (result)
+birraDiVContainer()
+
+//BUENO, ACA LA PAPA ES FETCHEAR EL JSON y HACERLO DE ALCANCE GLOBAL PARA PODER USAR SUS VALUES EN function birraDiVContainer()
+async function LoadJson () {
+  const response = await fetch ('../JSON/toska_json.json')
+  const data = await response.json()
+  return data
+  }
+  
+//encuentra en punto de insercion en el html, e inyecta el html tras haber iterado el objeto del json. creo que llevaria un for of, pero como no anda
+//no lo impremente. 
+
+//las variables estan puestas a modo explicativo, ya que como no las puedo leer no puedo estimar su estructura. Pero por ahi debe andar, salvo que tenga un
+//sub indice [x] para especificar que posicion del array lee
+//es bootstrap 5
+
+function birraDiVContainer() {
+  const DiVContainer = document.getElementById("principal_beershop");
+  DiVContainer.innerHTML = ` `;
+    let col = document.createElement("col")
+    col.innerHTML = `
+      <div class="card">
+        <img src="${data.cervezas.img}" class="card-img-top" alt="${data.cervezas.nombre}">
+        <div class="card-body">
+          <h5 class="card-title"> ${data.cervezas.nombre}</h5>
+          <p class="card-text">${data.cervezas.descripcion}</p>
+          <button ID=${data.cervezas.buttonRestar} class="btn btn-outline-dark" type="number">  QUITAR </button> 
+          <button ID=${data.cervezas.buttonCant} class="btn btn-outline-dark" type="button"> CANTIDAD PEDIDA : 0 </button>
+          <button ID=${data.cervezas.buttonSumar} class="btn btn-outline-dark" type="button" max="5"> AGREGAR </button>
+        </div>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                ▼ Detalles :
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"> ${data.cervezas.detalles} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     `
+     DiVContainer.appendChild(DiVContainer)  // redundante 
+  
+  }
+
+
+
+
+
+
+/*
 
 // botones birras . Suma una o resta 1 apa
 var btnpedirUnaApa = document.getElementById(pedirUnaApa)
@@ -27,6 +86,7 @@ var btnpedirUnaNegra = document.getElementById(pedirUnaNegra)
 pedirUnaNegra.addEventListener("click", () => (Negra++, Number(localStorage.setItem("Negra", Negra)), mostrarBirras(Negra, "cantidadNegra")))
 var btnrestarUnaNegra = document.getElementById(restarUnaNegra)
 restarUnaNegra.addEventListener("click", () => ((Negra = Negra <= 0 || --Negra), Number(localStorage.setItem("Negra", Negra)), mostrarBirras(Negra, "cantidadNegra")))
+
 
 // la funcion que actualiza el numero de birras pedidas en el display de su sabor correspondiente 
 function mostrarBirras(EPA, cantidadEpa) {
@@ -73,28 +133,12 @@ function botonConfirmarCompraRefresh() {
   document.getElementById("confirmarPedido").prepend(noAvanzar);
 }
 
+CODIGO VIEJO DE REFERENCIA 
+CODIGO VIEJO DE REFERENCIA 
+CODIGO VIEJO DE REFERENCIA 
+CODIGO VIEJO DE REFERENCIA 
+CODIGO VIEJO DE REFERENCIA :::::::
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
 let x = 0
 let birrasTipos = ["Epa", "Apa", "Negra"]
 let precios = [500, 400, 350]
@@ -148,9 +192,6 @@ function compruebaIsNaN(variable) {
     return false
   }
 }
-
-
-
 
 // Se ejecuta por cada tipo de birra
 function expermiental() {
@@ -217,4 +258,4 @@ while ((i !== 2) && compruebaIsNaN(cuotas) === true || compruebaCuotas(cuotas) =
       break;
     }
   }
-}*/
+*/
