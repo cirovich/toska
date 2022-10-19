@@ -2,55 +2,69 @@ IPA = localStorage.getItem("IPA");
 APA = localStorage.getItem("APA");
 EPA = localStorage.getItem("EPA");
 Negra = localStorage.getItem("Negra");
+let LoginStatus = "false" 
 
-const users = [
+let users = [
   {
-    userName: "admin",
-    passWord: "admin",
-  },
-
-  {
-    userName: "root",
-    passWord: "toor",
+      user: 'ciro',
+      passWord: 'franco'
   },
   {
-    userName: "ciro",
-    passWord: "franco",
-  }
-]
+     user: 'admin',
+      passWord: 'admin'
+  },
+  {
+     user: 'root',
+     passWord: 'toor'
+  },
+];
 
+// trae desde el HTML los valores que el usuario ingresa y llama a la funcion verificarUser
 document.getElementById("login").addEventListener("submit", verificarUser,);
 
+//verifica que el usuario ingresado este en el objeto, y a su vez que el passWord ingrsado conincida con el del objeto
 function verificarUser(e) {
   e.preventDefault();
   userNameImput = document.getElementById("username").value;
-  passWord = document.getElementById("password").value;
-  console.log(userNameImput, passWord)
-  const checkUser = users.some(users => users.userName === userNameImput);
-  console.log(checkUser);
-  //esto esta mal. Deberia ser un find() para encotrar si ese usernamen especifico esta en el obj
+  passWordImput = document.getElementById("password").value;
+  let userActive = users.find(user => user.user === 'ciro');
+  console.log(userActive.passWord)
 
-  if (checkUser == false) {
+  // si la comprobacion es correcta lo muestra por Sweet Alert y lo guarda en SessionStorage para poder utilizarlo en otros HTMLS
+  if (userActive.passWord === passWordImput)  
+  {
+    sessionStorage.setItem("LoginStatus" , "true");
+    sessionStorage.setItem("userActive" , userNameImput)
     Swal.fire({
-      title: 'Usuario erroneo o inexistente',
-      showDenyButton: true,
-      confirmButtonText: 'Crear nuevo usuario ',
-      denyButtonText: `Volver a intentar`,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Saved!', '', 'success')
-      } else if (result.isDenied) {
-        Swal.fire('Ingrese nuevamente usuario y password', '', 'info')
-      }
-    })
-  } else {
-    Swal.fire(
-      "Login correcto",
-      'Continuá con tu compra',
-      'success'
-    )
-  }
+    icon: 'success',
+    title: 'Usuario logeado con exito',
+    text: 'Volver a la pagina para continuar con tu comrpra ',
+  })
+  .then((result) => {
+    if (result.isConfirmed) {
+      window.open("../htmls/confirmarCompra.html", "_self",
+      )
+    }
+  })
+
+} else
+
+  {Swal.fire({
+    title: 'Usuario NO encontrado',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    cancelButtonText: 'Volver a intentar',
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#716add',
+    confirmButtonText: 'Crear nuevo usuario'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    }
+  })}
 }
-
-
-

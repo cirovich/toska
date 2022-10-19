@@ -4,7 +4,7 @@
    "precio":550, 
    "descripcion":"Refrescante, furte y aventurera. Nuestra propuesta para tu verano en Calamuchita.", 
    "img":"../images/beershop/apa.jpg", 
-   "detalles":"Alcohol 4.5 % - Amargor 5 % - Precio por Litro :",
+   "detalles":"Alcohol 4.5 % - Amargor 5 % - Precio por Litro : $",
    "buttonRestar":"restarUnaApa",
    "buttonCant":"cantidadApa",
    "buttonSumar":"pedirUnaApa"  
@@ -14,7 +14,7 @@
    "precio":620, 
    "descripcion":"Fuerte, espesa y desacatada. Transforma un insípido Hola en un agitador Holaaaaa.", 
    "img":"../images/beershop/epa.jpg", 
-   "detalles":"Alcohol 6.5 % - Amargor 3.2 % - Precio por Litro : ",  
+   "detalles":"Alcohol 6.5 % - Amargor 3.2 % - Precio por Litro : $",  
    "buttonRestar":"restarUnaEpa",
    "buttonCant":"cantidadEpa",
    "buttonSumar":"pedirUnaEpa"  
@@ -24,7 +24,7 @@
   "precio":690, 
   "descripcion":"Una bomba. Afloja caderas, lenguas y billeteras. Te hace mandar ESE mensaje.", 
   "img":"../images/beershop/ipa.png", 
-  "detalles":" Alcohol 7 % - Amargor 4.1 % - Precio por Litro : ", 
+  "detalles":" Alcohol 7 % - Amargor 4.1 % - Precio por Litro : $", 
   "buttonRestar":"restarUnaIpa",
   "buttonCant":"cantidadIpa",
   "buttonSumar":"pedirUnaIpa"  
@@ -34,7 +34,7 @@
   "precio":270, 
   "descripcion":"De mucho cuerpo, presencia fuerte pero dulce. Con trazas de café tostado.", 
   "img":"../images/beershop/negra.jpg", 
-  "detalles":"Alcohol 3.9 % - Amargor 2.3 % - Precio por Litro : "  , 
+  "detalles":"Alcohol 3.9 % - Amargor 2.3 % - Precio por Litro : $"  , 
   "buttonRestar":"restarUnaNegra",
   "buttonCant":"cantidadNegra",
   "buttonSumar":"pedirUnaNegra"  

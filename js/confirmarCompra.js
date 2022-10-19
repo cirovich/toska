@@ -3,11 +3,16 @@ IPA = localStorage.getItem("IPA");
 APA = localStorage.getItem("APA");
 EPA = localStorage.getItem("EPA");
 Negra = localStorage.getItem("Negra");
+LoginStatus = sessionStorage.getItem("LoginStatus") // este valor lo va a tomar del sistema de logueo, que es posterior cronologicamente. Por eso es Null o True
+userActive = sessionStorage.getItem("userActive")
 
 document.getElementById("IPA").innerHTML = IPA;
 document.getElementById("APA").innerHTML = APA;
 document.getElementById("EPA").innerHTML = EPA;
 document.getElementById("Negra").innerHTML = Negra;
+
+// llama a la funcion que chequea si el usuario esta logeado y lo muestra en pantalla 
+chequeaSiLogon ()
 
 //Busca los datos de la API de bebidas
 fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
@@ -26,6 +31,7 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
     
     `;
     recetaDiaria.appendChild(div)
+    console.log (LoginStatus)
   });
 
 
@@ -72,7 +78,7 @@ function crearBotonLogin() {
   const btn = document.getElementById("btnlogin");
   btn !== null && botonLogin.removeChild(btn);
   const botonLoginBtn = document.createElement("button");
-  botonLoginBtn.id = "btnlogin";
+  botonLoginBtn.id = "btnlogin";     
   botonLoginBtn.innerText = "Logueate para poder comprar tu pedido";
   botonLoginBtn.addEventListener("click", () => {
     window.open("login.html", "_self");
@@ -80,29 +86,23 @@ function crearBotonLogin() {
   document.getElementById("confirmarCompraBoton").prepend(botonLoginBtn);
 }
 
-/*
-import getData from 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-import getHash from 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-
-
-const Character = async () => {
-    const recetaDiaria = getHash();
-    const receta = await getData(recetaDiaria);
-    const view = <div class="Characters-inner">
-        <article class="Characters-card">
-            <img src="${receta.image}" alt="${receta.name}"></img>
-            <h2>${receta.name}</h2>
-        </article>
-        <article class="Characters-card">
-            <h3>Epidodios: <span>${receta.episode.length}</span></h3>
-            <h3>Status: <span>${receta.status}</span></h3>
-            <h3>Species: <span>${receta.species}</span></h3>
-            <h3>Gender: <span>${receta.gender}</span></h3>
-            <h3>Origin: <span>${receta.origin.name}</span></h3>
-            <h3>Last Location: <span>${receta.location.name}</span></h3>`
-        </article>
-    </div> 
+//Chequea si el usuario esta logeado y lo muestra en pantalla  
+//Como ya esta logeado, sobreescribe el boton de logueo con el de  pagar
+function chequeaSiLogon () {
+  if (LoginStatus == "true")
+  { 
+  // para que quede ultra cheto, borramos el selector de cuotas
+  const selectorCuotas = document.getElementById("selectorCuotas");
+  selectorCuotas.remove();
+  // muesta arriba a la izquierda una notificacion de bienvenida
+  const loginStatus = document.getElementById("loginStatus");
+  loginStatus.innerHTML = `Bienvenido ${userActive.toUpperCase()}`
+  // sobreescribe el boton de logueo con el de  pagar
+  const botonLoginBtn = document.createElement("button");
+  botonLoginBtn.id = "btnloginListo";     
+  botonLoginBtn.innerText = "CONFIRMAR COMPRA - ABONAR ";
+  document.getElementById("confirmarCompraBoton").prepend(botonLoginBtn);
+  }
+  else 
+  { console.log("Esto no puede fallar pa")}
 }
-*/
-
-
