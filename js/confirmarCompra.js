@@ -1,4 +1,3 @@
-//que elegancia la de francia
 IPA = localStorage.getItem("IPA");
 APA = localStorage.getItem("APA");
 EPA = localStorage.getItem("EPA");
@@ -6,11 +5,11 @@ Negra = localStorage.getItem("Negra");
 LoginStatus = sessionStorage.getItem("LoginStatus") // este valor lo va a tomar del sistema de logueo, que es posterior cronologicamente. Por eso es Null o True
 userActive = sessionStorage.getItem("userActive")
 
+
 document.getElementById("IPA").innerHTML = IPA;
 document.getElementById("APA").innerHTML = APA;
 document.getElementById("EPA").innerHTML = EPA;
 document.getElementById("Negra").innerHTML = Negra;
-
 // llama a la funcion que chequea si el usuario esta logeado y lo muestra en pantalla 
 chequeaSiLogon ()
 
@@ -25,13 +24,12 @@ fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
     recetaDiaria.innerHTML = `¿ No aguantas a que llegue el delivery? Traigan puertas que manijas sobran! Podes esquivar la realidad con un riquisimo ${receta.drinks[0].strDrink}. Nada mas necesitas ${receta.drinks[0].strIngredient1} y ${receta.drinks[0].strIngredient2}`
     const div   = document.createElement("div");
     div.innerHTML = `
-    <img src=${receta.drinks[0].strDrinkThumb}> 
+    <img src=${receta.drinks[0].strDrinkThumb} class="container-fluid">" 
     <br>
     ${receta.drinks[0].strInstructions}
     
     `;
     recetaDiaria.appendChild(div)
-    console.log (LoginStatus)
   });
 
 
@@ -103,6 +101,4 @@ function chequeaSiLogon () {
   botonLoginBtn.innerText = "CONFIRMAR COMPRA - ABONAR ";
   document.getElementById("confirmarCompraBoton").prepend(botonLoginBtn);
   }
-  else 
-  { console.log("Esto no puede fallar pa")}
 }
