@@ -119,7 +119,7 @@ function crearNuevoUsuarioHTML() {
     placeholder="Cree su Password"
     required
   />
-  <input type="button" value="Crear Usuario" id="boton"/>
+  <input type="submit" value="Crear Usuario" id="boton"/>
 </form>
 `
 contenedorLogin.appendChild(div)
