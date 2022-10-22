@@ -104,7 +104,7 @@ function crearNuevoUsuarioHTML() {
   <form id="loginNew" class = "animate__animated animate__zoomInDown">
   <h1>[TOSKA] <br> Crear Usuario</h1>
   <input
-    type="submit"
+    type="text"
     name="username"
     id="username"
     class="login-form-field"
