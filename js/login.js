@@ -109,6 +109,7 @@ function crearNuevoUsuarioHTML() {
     id="username"
     class="login-form-field"
     placeholder="Cree su Usuario"
+    required
   />
   <input
     type="password"
@@ -116,6 +117,7 @@ function crearNuevoUsuarioHTML() {
     id="password"
     class="login-form-field"
     placeholder="Cree su Password"
+    required
   />
   <input type="button" value="Crear Usuario" id="boton"/>
 </form>
