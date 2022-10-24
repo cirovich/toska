@@ -3,23 +3,23 @@ let EPA = 0;
 let Negra = 0;
 let IPA = 0;
 
-// Llamar a la funcion que inyecta el HTML desde JS alimentado por JSON 
+// Llamar a la funcion que inyecta el HTML desde JS alimentado por JSON
 birraDiVContainer();
 
 // la funcion que fetchea el JSOn
 async function loadJson() {
-  const response = await fetch("../JSON/toska_json.json");
+  const response = await fetch('../JSON/toska_json.json');
   const data = await response.json();
   return data;
 }
 
-// Funcion que inyecta el HTML desde JS alimentado por JSON 
+// Funcion que inyecta el HTML desde JS alimentado por JSON
 // Convertir a la funcion en async para que pueda awaitear el llamado de la otra funcion LoadJson
 async function birraDiVContainer() {
   // Llamar a la funcion que consigue los datos y esperar que se carguen antes de continuar.
   const data = await loadJson();
   // contenedor en el dom
-  const DiVContainer = document.getElementById("principal_beershop");
+  const DiVContainer = document.getElementById('principal_beershop');
   // Para cada cerveza del array:
   data.cervezas.forEach((cerveza) => {
     // El string formateado para cada cerveza - es bootstrap 5
@@ -54,138 +54,135 @@ async function birraDiVContainer() {
             `;
     // Transformar el string que devuelve de mas arriba en un elemento del DOM (esto nunca lo habia hecho lo saque de google)
     const parser = new DOMParser();
-    const card = parser.parseFromString(cardString, "text/html").body;
+    const card = parser.parseFromString(cardString, 'text/html').body;
     // append la card al contenedor del dom
     DiVContainer.append(card);
   });
 
   // botones birras . Suma una o resta 1 apa   - van aca adentro de esta funcion para que de tiempo a crear el htnm que toma getElenebtById
-  var btnpedirUnaApa = document.getElementById(pedirUnaApa);
+  const btnpedirUnaApa = document.getElementById(pedirUnaApa);
   pedirUnaApa.addEventListener(
-    "click",
+    'click',
     () => (
       APA++,
-      Number(localStorage.setItem("APA", APA)),
-      mostrarBirras(APA, "cantidadApa")
-    )
+      Number(localStorage.setItem('APA', APA)),
+      mostrarBirras(APA, 'cantidadApa')
+    ),
   );
-  var btnrestarUnaApa = document.getElementById(restarUnaApa);
+  const btnrestarUnaApa = document.getElementById(restarUnaApa);
   restarUnaApa.addEventListener(
-    "click",
+    'click',
     () => (
       (APA <= 0 ? APA = APA : --APA),
-      Number(localStorage.setItem("APA", APA)),
-      mostrarBirras(APA, "cantidadApa")
-    )
+      Number(localStorage.setItem('APA', APA)),
+      mostrarBirras(APA, 'cantidadApa')
+    ),
   );
 
   // botones birras . Suma una o resta 1 epa
-  var btnpedirUnaEpa = document.getElementById(pedirUnaEpa);
+  const btnpedirUnaEpa = document.getElementById(pedirUnaEpa);
   pedirUnaEpa.addEventListener(
-    "click",
+    'click',
     () => (
       EPA++,
-      Number(localStorage.setItem("EPA", EPA)),
-      mostrarBirras(EPA, "cantidadEpa")
-    )
+      Number(localStorage.setItem('EPA', EPA)),
+      mostrarBirras(EPA, 'cantidadEpa')
+    ),
   );
-  var btnrestarUnaEpa = document.getElementById(restarUnaEpa);
+  const btnrestarUnaEpa = document.getElementById(restarUnaEpa);
   restarUnaEpa.addEventListener(
-    "click",
+    'click',
     () => (
       (EPA <= 0 ? EPA = EPA : --EPA),
-      Number(localStorage.setItem("EPA", EPA)),
-      mostrarBirras(EPA, "cantidadEpa")
-    )
+      Number(localStorage.setItem('EPA', EPA)),
+      mostrarBirras(EPA, 'cantidadEpa')
+    ),
   );
 
   // botones birras . Suma una o resta 1 Ipa
-  var btnpedirUnaIpa = document.getElementById(pedirUnaIpa);
+  const btnpedirUnaIpa = document.getElementById(pedirUnaIpa);
   pedirUnaIpa.addEventListener(
-    "click",
+    'click',
     () => (
       (IPA = ++IPA),
-      Number(localStorage.setItem("IPA", IPA)),
-      mostrarBirras(IPA, "cantidadIpa")
-    )
+      Number(localStorage.setItem('IPA', IPA)),
+      mostrarBirras(IPA, 'cantidadIpa')
+    ),
   );
-  var btnrestarUnaIpa = document.getElementById(restarUnaIpa);
+  const btnrestarUnaIpa = document.getElementById(restarUnaIpa);
   restarUnaIpa.addEventListener(
-    "click",
+    'click',
     () => (
       (IPA <= 0 ? IPA = IPA : --IPA),
-      Number(localStorage.setItem("IPA", IPA)),
-      mostrarBirras(IPA, "cantidadIpa")
-    )
+      Number(localStorage.setItem('IPA', IPA)),
+      mostrarBirras(IPA, 'cantidadIpa')
+    ),
   );
 
   // botones birras . Suma una o resta 1 Negra
-  var btnpedirUnaNegra = document.getElementById(pedirUnaNegra);
+  const btnpedirUnaNegra = document.getElementById(pedirUnaNegra);
   pedirUnaNegra.addEventListener(
-    "click",
+    'click',
     () => (
       Negra++,
-      Number(localStorage.setItem("Negra", Negra)),
-      mostrarBirras(Negra, "cantidadNegra")
-    )
+      Number(localStorage.setItem('Negra', Negra)),
+      mostrarBirras(Negra, 'cantidadNegra')
+    ),
   );
-  var btnrestarUnaNegra = document.getElementById(restarUnaNegra);
+  const btnrestarUnaNegra = document.getElementById(restarUnaNegra);
   restarUnaNegra.addEventListener(
-    "click",
+    'click',
     () => (
       (Negra <= 0 ? Negra = Negra : --Negra),
-      Number(localStorage.setItem("Negra", Negra)),
-      mostrarBirras(Negra, "cantidadNegra")
-    )
+      Number(localStorage.setItem('Negra', Negra)),
+      mostrarBirras(Negra, 'cantidadNegra')
+    ),
   );
 }
 
 // la funcion que actualiza el numero de birras pedidas en el display de su sabor correspondiente
 async function mostrarBirras(EPA, cantidadEpa) {
-  //impide que el numero entre en terreno negativo
+  // impide que el numero entre en terreno negativo
   if (EPA <= 0) {
     EPA = 0;
   }
   const displayCAntidadBirras = document.getElementById(cantidadEpa);
-  displayCAntidadBirras.innerHTML = "";
-  const birrasInternas = document.createElement("div");
-  birrasInternas.classList.add("cantidad");
-  birrasInternas.innerHTML = "CANTIDAD PEDIDA : " + EPA;
+  displayCAntidadBirras.innerHTML = '';
+  const birrasInternas = document.createElement('div');
+  birrasInternas.classList.add('cantidad');
+  birrasInternas.innerHTML = `CANTIDAD PEDIDA : ${EPA}`;
   displayCAntidadBirras.append(birrasInternas);
 }
 
-//confirma la compra. Si las birras son igual a 0 no deja pasar
+// confirma la compra. Si las birras son igual a 0 no deja pasar
 function guardarCompraEnStorage(IPA, APA, EPA, Negra) {
-  //comprueba que birraPedida !=0
+  // comprueba que birraPedida !=0
   setTimeout(botonConfirmarCompraRefresh, 2000);
   birraPedida = IPA + APA + EPA + Negra;
   if (birraPedida === 0) {
-    const noAvanzar = document.getElementById("confirmarPedido");
-    noAvanzar.innerText =
-      "No podes avanzar si no compraste por lo menos una birra!";
-    noAvanzar.addEventListener("click", () => {
+    const noAvanzar = document.getElementById('confirmarPedido');
+    noAvanzar.innerText = 'No podes avanzar si no compraste por lo menos una birra!';
+    noAvanzar.addEventListener('click', () => {
       guardarCompraEnStorage;
     });
-    document.getElementById("confirmarPedido").prepend(noAvanzar);
+    document.getElementById('confirmarPedido').prepend(noAvanzar);
   } else {
     // si compro birras, guardas las variables en localstorage y deja pasar al siguiente html
-    localStorage.setItem("IPA", IPA);
-    localStorage.setItem("APA", APA);
-    localStorage.setItem("EPA", EPA);
-    localStorage.setItem("Negra", Negra);
-    window.location.href = "confirmarCompra.html";
+    localStorage.setItem('IPA', IPA);
+    localStorage.setItem('APA', APA);
+    localStorage.setItem('EPA', EPA);
+    localStorage.setItem('Negra', Negra);
+    window.location.href = 'confirmarCompra.html';
   }
 }
 
-//tras 2 segundos cambia la leyenda del boton en caso de haber querido comprar 0 CERO birras
+// tras 2 segundos cambia la leyenda del boton en caso de haber querido comprar 0 CERO birras
 function botonConfirmarCompraRefresh() {
-  noAvanzar = document.getElementById("confirmarPedido");
-  noAvanzar.innerText = "CONFIRMAR COMPRA";
-  document.getElementById("confirmarPedido").prepend(noAvanzar);
+  noAvanzar = document.getElementById('confirmarPedido');
+  noAvanzar.innerText = 'CONFIRMAR COMPRA';
+  document.getElementById('confirmarPedido').prepend(noAvanzar);
 }
 
-//Boton Confrima compra
-var btnConfirmar = document.getElementById("confirmarPedido");
-btnConfirmar.addEventListener("click", () =>
-  guardarCompraEnStorage(IPA, APA, EPA, Negra)
-);
+// Boton Confrima compra
+const btnConfirmar = document.getElementById('confirmarPedido');
+btnConfirmar.addEventListener('click', () => guardarCompraEnStorage(IPA, APA, EPA, Negra));
