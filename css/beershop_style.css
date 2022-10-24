@@ -1,0 +1,148 @@
+a.link {
+  text-decoration: none;
+}
+
+a.visited {
+  text-decoration: none;
+}
+
+a.active {
+  text-decoration: underline;
+}
+
+#principal_beershop {
+  text-align: center;
+  justify-content: left;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+/* MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE */
+@media screen and (max-width: 599px) {
+  .whatsappSticky {
+    display: none;
+  }
+
+  #principal_beershop {
+    font-size: 150%;
+  }
+}
+
+/*DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP */
+@media screen and (min-width: 600px) {
+  body {
+    background: radial-gradient(circle at 100%, #333, #333 50%, #eee 75%, #333 75%);
+  }
+
+  #principal_beershop {
+    font-size: 150%;
+    background-size: cover;
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+  .whatsappSticky {
+    position: fixed;
+    bottom: 560px;
+    left: 1350px;
+    width: 45px;
+    height: 45px;
+    z-index: 1;
+  }
+
+  .whatsappSticky:hover img {
+    transform: scale(1.5) rotate(25deg);
+    transition: 0.5s ease-in-out;
+  }
+
+  .shake {
+    -webkit-animation: temblor-animation 1.5s ease infinite;
+    animation: temblor-animation 1.5s ease infinite;
+    transform-origin: 70% 70%;
+  }
+
+
+  #DivconfirmarPedido {
+    display: flex;
+  }
+
+  #confirmarPedido {
+    margin-bottom: 1rem;
+  }
+
+
+
+
+
+}
+
+@-webkit-keyframes temblor-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  1.78571% {
+    transform: translate(15px, 0);
+  }
+
+  3.57143% {
+    transform: translate(0, 0);
+  }
+
+  5.35714% {
+    transform: translate(15px, 0);
+  }
+
+  7.14286% {
+    transform: translate(0, 0);
+  }
+
+  8.92857% {
+    transform: translate(15px, 0);
+  }
+
+  10.71429% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes temblor-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  1.78571% {
+    transform: translate(15px, 0);
+  }
+
+  3.57143% {
+    transform: translate(0, 0);
+  }
+
+  5.35714% {
+    transform: translate(15px, 0);
+  }
+
+  7.14286% {
+    transform: translate(0, 0);
+  }
+
+  8.92857% {
+    transform: translate(15px, 0);
+  }
+
+  10.71429% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.card img:hover {
+  transform: scale(0.95);
+  transition: 0.2s ease-in-out;
+}

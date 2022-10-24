@@ -1,0 +1,60 @@
+/*DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP DESKTOP */
+@media screen and (min-width: 600px) {
+  #confirmarCompra {
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    background-size: cover;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+
+  #hr1 {
+    max-width: 400px;
+    margin-left: 36%;
+  }
+
+  #recetaDiaria {
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 3.5
+ }
+ 
+  #recetaDiaria img {
+    border: 10px solid #555;
+    max-width: 50%;
+    max-height: 50%;
+  }
+ 
+  
+  #loginStatus {
+    text-align: left;
+    padding-left: 1%;
+
+  }
+
+  #btnlogin{
+    margin-top: 1%;
+  }
+
+  #btnloginListo{
+    background-color: rgb(149, 219, 45);
+    margin-top: 1%;
+  }
+ 
+}
+
+/*MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE */
+@media screen and (max-width: 599px) {
+  body {
+    background-color: rgb(69, 131, 179);
+    text-align: center;
+    margin-bottom: 0px;
+  }
+
+  #recetaDiaria img {
+    max-width:600px;
+    display: flex;
+  }
+
+
+}

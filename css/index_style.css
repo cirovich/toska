@@ -1,0 +1,65 @@
+.navbar {
+  z-index: 2;
+  position: absolute;
+}
+
+#principal {
+  z-index: 1;
+  position: relative;
+}
+
+.navbar-expand-lg {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+#principal div {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: larger;
+  color: rgb(0, 0, 0);
+  background-color: rgba(93, 155, 162, 0.7);
+  max-height: 750px;
+}
+
+#historia {
+  background-color: rgba(141, 192, 198, 0.5);
+  font-size: larger;
+  text-align: center;
+}
+#historia .card {
+  background-color: rgba(141, 192, 198, 0.5);
+}
+
+#historia2 {
+  font-size: x-large;
+  margin: 2rem 2rem 2rem 2rem;
+}
+
+#historia2 .responsive {
+  display: block;
+  max-width: 90%;
+  margin: 1rem auto 1rem auto;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 25px;
+}
+#historia2 .imagenesLaterales {
+  position: absolute;
+  z-index: -1;
+  max-width: 15%;
+  margin: -2rem;
+}
+#historia2 .derecha {
+  margin-left: 75%;
+}
+
+p, h1 {
+  padding: 1rem 1rem 2rem 0rem;
+  text-align: center;
+}
+
+/* MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE */
+@media screen and (max-width: 599px) {
+  .derecha {
+    display: none;
+  }
+}
